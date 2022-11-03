@@ -47,7 +47,7 @@
             <div class="contatti overflow-auto">
                 <div class="user p-3 d-flex justify-content-between align-items-center "
                     v-for="(obj,i) in filteredContacts" :key="obj.id" @click="getConv(obj.id)"
-                    :class="{'current' : index === currentIndex}">
+                    :class="{'current' : obj.id === contacts[currentIndex].id}">
                     <img class="tondo " :src="`./img/avatar${contacts[i].avatar}.jpg`" :alt="obj.name">
                     <p>{{contacts[i].name}}<br>
                         <span>{{truncate(contacts[i].messages[contacts[i].messages.length-1].message, 20)}}</span>
