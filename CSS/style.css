@@ -138,3 +138,29 @@ margin-top: 20%;
 .user:hover{
   background-color: #F4F0ED;
 }
+
+
+.active{
+  background-color: #F4F0ED;
+}
+
+.msg-bubble{
+  display: flex;
+  flex-flow: column nowrap;
+  background-color:#DDFABF;
+  border-radius: 10px;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+.send-time{
+  font-size: 10px;
+  color: grey;
+  margin-bottom: 2px;
+}
+
+
+.sent{
+  background-color:white;
+  align-self: flex-end;
+}

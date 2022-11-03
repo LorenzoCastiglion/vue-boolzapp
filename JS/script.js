@@ -26,7 +26,10 @@ const app = createApp({
 
 
     data() {
+        
+        
         return {
+            currentIndex: 0,
             contacts: [
 
                 {
@@ -124,6 +127,50 @@ const app = createApp({
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         },
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Lo sai che ha aperto una nuova pizzeria?',
+                            status: 'sent'
+                        },
+
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Lo sai che ha aperto una nuova pizzeria?',
+                            status: 'sent'
+                        },
+
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Lo sai che ha aperto una nuova pizzeria?',
+                            status: 'sent'
+                        },
+
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Lo sai che ha aperto una nuova pizzeria?',
+                            status: 'sent'
+                        },
+
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        },
 
                     ],
                 },
@@ -131,7 +178,7 @@ const app = createApp({
 
 
                 {
-                    id: 4,
+                    id: 5,
                     name: 'Alessandro L.',
                     avatar: '_5',
                     visible: true,
@@ -226,6 +273,18 @@ const app = createApp({
             ]
         }
     },
+
+    
+    methods:{
+      
+    //   funzione click
+        getConv (id){
+            this.currentIndex = this.contacts.findIndex((item) =>  item.id === id )
+            
+    }  
+    }
+
+   
 
 
 
