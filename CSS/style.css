@@ -147,7 +147,7 @@ margin-top: 20%;
 .msg-bubble{
   display: flex;
   flex-flow: column nowrap;
-  background-color:#DDFABF;
+  background-color: white;
   border-radius: 10px;
   justify-content: flex-start;
   align-self: flex-start;
@@ -161,6 +161,13 @@ margin-top: 20%;
 
 
 .sent{
-  background-color:white;
+  background-color:#DDFABF;
   align-self: flex-end;
+}
+
+.sent .send-time::after{
+  content: '\f560';
+  font: var(--fa-font-solid);
+  margin-left: 2px;
+  
 }

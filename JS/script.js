@@ -26,10 +26,14 @@ const app = createApp({
 
 
     data() {
-        
-        
+
+
         return {
+
             currentIndex: 0,
+            newMessage: '',
+
+
             contacts: [
 
                 {
@@ -274,17 +278,52 @@ const app = createApp({
         }
     },
 
+
+    methods: {
+
+        //   funzione click
+        getConv(id) {
+            this.currentIndex = this.contacts.findIndex((item) => item.id === id)
+
+        },
+
+        sendMessage() {
+
+            const d= new Date;
+            let newDate = d.toDateString();
+            console.log(d)
+            console.log(newDate)
+
+            const newmessage = {
+                date: newDate,
+                message: this.newMessage,
+                status: 'sent'
+            }
+
+            this.contacts[this.currentIndex].messages.push(newmessage);
+            this.newMessage = ''
+
+
+            setTimeout(() => {
+
+                const newmessage = {
+                    date: newDate,
+                    message: 'OK!',
+                    status: 'received'
+                }
     
-    methods:{
-      
-    //   funzione click
-        getConv (id){
-            this.currentIndex = this.contacts.findIndex((item) =>  item.id === id )
-            
-    }  
+                this.contacts[this.currentIndex].messages.push(newmessage);
+                
+            }, 2000);
+
+        },
+
+       
+
+
     }
 
-   
+
 
 
 
