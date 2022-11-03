@@ -50,7 +50,7 @@
                     :class="{'current' : index === currentIndex}">
                     <img class="tondo " :src="`./img/avatar${contacts[i].avatar}.jpg`" :alt="obj.name">
                     <p>{{contacts[i].name}}<br>
-                        <span>{{contacts[i].messages[contacts[i].messages.length-1].message}}</span>
+                        <span>{{truncate(contacts[i].messages[contacts[i].messages.length-1].message, 20)}}</span>
                     </p>
                     <span>{{contacts[i].messages[contacts[i].messages.length-1].date.substring(11,16)}}</span>
                 </div>

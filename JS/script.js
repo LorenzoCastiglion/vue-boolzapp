@@ -305,6 +305,10 @@ const app = createApp({
             }, 2000);
         },
 
+        truncate(str, maxlength) {
+            return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str;
+          }
+
        
 
 
