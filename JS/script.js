@@ -146,7 +146,7 @@ const app = createApp({
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         },
-                       
+
 
                     ],
                 },
@@ -255,11 +255,11 @@ const app = createApp({
 
     computed: {
 
-        filteredContacts(){
-                return  this.contacts.filter((user)=>{
-                        const name = user.name.toLowerCase();
-                        return name.includes(this.cerca.toLowerCase())
-                
+        filteredContacts() {
+            return this.contacts.filter((user) => {
+                const name = user.name.toLowerCase();
+                return name.includes(this.cerca.toLowerCase())
+
             })
         }
 
@@ -276,9 +276,13 @@ const app = createApp({
 
         //invio messaggio e auto risposta
         sendMessage() {
-            if(!this.contacts[this.currentIndex].newMessage) return;
-            const d= new Date;
-            let newDate = d.toDateString();
+            if (!this.contacts[this.currentIndex].newMessage) return;
+
+            function getFormattedDate(date) {
+                return `${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}/${date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()}/${date.getFullYear()} ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()}`;
+            }
+            const d = new Date();
+            let newDate = getFormattedDate(d);
             console.log(d)
             console.log(newDate)
 
@@ -289,7 +293,7 @@ const app = createApp({
             }
 
             this.contacts[this.currentIndex].messages.push(newmessage);
-            this.contacts[this.currentIndex].newMessage= ''
+            this.contacts[this.currentIndex].newMessage = ''
 
 
             setTimeout(() => {
@@ -299,17 +303,17 @@ const app = createApp({
                     message: 'OK!',
                     status: 'received'
                 }
-    
+
                 this.contacts[this.currentIndex].messages.push(newmessage);
-                
+
             }, 2000);
         },
 
         truncate(str, maxlength) {
             return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str;
-          }
+        }
 
-       
+
 
 
     }
