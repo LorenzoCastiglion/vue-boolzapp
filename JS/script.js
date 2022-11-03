@@ -287,8 +287,9 @@ const app = createApp({
 
         },
 
+        //invio messaggio e auto risposta
         sendMessage() {
-
+            if(!this.newMessage) return;
             const d= new Date;
             let newDate = d.toDateString();
             console.log(d)
