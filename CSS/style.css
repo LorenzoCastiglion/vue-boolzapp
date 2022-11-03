@@ -171,3 +171,15 @@ margin-top: 20%;
   margin-left: 2px;
   
 }
+
+
+#send-msg{
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(21, 124, 119) ;
+margin-left: 10px;
+line-height: 35px;
+  color:white
+}
