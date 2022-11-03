@@ -41,6 +41,7 @@ const app = createApp({
                     name: 'Michele',
                     avatar: '_1',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -67,6 +68,7 @@ const app = createApp({
                     name: 'Fabio',
                     avatar: '_2',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -93,6 +95,7 @@ const app = createApp({
                     name: 'Samuele',
                     avatar: '_3',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
@@ -119,6 +122,7 @@ const app = createApp({
                     name: 'Alessandro B.',
                     avatar: '_4',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -152,6 +156,7 @@ const app = createApp({
                     name: 'Alessandro L.',
                     avatar: '_5',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
 
@@ -174,6 +179,7 @@ const app = createApp({
                     name: 'Claudia',
                     avatar: '_6',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -200,6 +206,7 @@ const app = createApp({
                     name: 'Federico',
                     avatar: '_7',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -221,6 +228,7 @@ const app = createApp({
                     name: 'Davide',
                     avatar: '_8',
                     visible: true,
+                    newMessage: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -268,7 +276,7 @@ const app = createApp({
 
         //invio messaggio e auto risposta
         sendMessage() {
-            if(!this.newMessage) return;
+            if(!this.contacts[this.currentIndex].newMessage) return;
             const d= new Date;
             let newDate = d.toDateString();
             console.log(d)
@@ -276,12 +284,12 @@ const app = createApp({
 
             const newmessage = {
                 date: newDate,
-                message: this.newMessage,
+                message: this.contacts[this.currentIndex].newMessage,
                 status: 'sent'
             }
 
             this.contacts[this.currentIndex].messages.push(newmessage);
-            this.newMessage = ''
+            this.contacts[this.currentIndex].newMessage= ''
 
 
             setTimeout(() => {
@@ -297,12 +305,7 @@ const app = createApp({
             }, 2000);
         },
 
-        // getContact(){
-        //     // this.contacts = this.contacts.filter((user)=>{
-        //     //     const name = user.name.toLowerCase();
-        //     //     return name.includes(this.cerca.toLowerCase())
-        //     // })
-        // }
+       
 
 
     }

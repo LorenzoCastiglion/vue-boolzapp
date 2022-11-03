@@ -15,10 +15,10 @@ body {
 
 .wrapper {
   overflow: hidden;
-background-color: white;
-width: 85%;
-height: 95%;
-margin-top: 20%;
+  background-color: white;
+  width: 85%;
+  height: 95%;
+  margin-top: 20%;
 
 }
 
@@ -30,7 +30,7 @@ margin-top: 20%;
   background-color: white;
 }
 
-.user-top{
+.user-top {
   border-right: 1px solid lightgray;
 }
 
@@ -46,57 +46,57 @@ margin-top: 20%;
 }
 
 
-.notifiche{
-  background-color:#8EDAFC ;
+.notifiche {
+  background-color: #8EDAFC;
 }
 
-.search{
+.search {
   width: 100%;
   background-color: #F4F0ED;
 
 }
 
-.search button{
+.search button {
   border-right: 0;
   border: 0;
   background-color: white;
   color: lightgray;
-  border-radius: 10px, 0,0,10px;
+  border-radius: 10px, 0, 0, 10px;
 }
 
-.search input{
-  border-radius: 0, 10px,10px,0;
+.search input {
+  border-radius: 0, 10px, 10px, 0;
   padding-left: 5px;
   border: 0;
   background-color: white;
 }
 
 
-.under-user p{
-  font-size: 12px ;
+.under-user p {
+  font-size: 12px;
   margin-bottom: 0;
 }
 
-.under-user span{
+.under-user span {
   color: gray;
-  font-size: 10px ;
+  font-size: 10px;
 }
 
 
-.user span{
+.user span {
   font-size: 10px;
   color: grey;
-  
+
 }
 
-.user p{
+.user p {
   margin-left: 10px;
   flex-grow: 1;
   margin-bottom: 0;
 }
 
-#bell{
-  font-size: 12px ;
+#bell {
+  font-size: 12px;
   margin-right: 8px;
   text-align: center;
   width: 50px;
@@ -107,27 +107,27 @@ margin-top: 20%;
   background-color: white;
 }
 
-.messaggi{
+.messaggi {
   overflow-y: auto;
   background-image: url(../img/mine.jpg);
   height: calc(100% - 154px);
 }
 
-.scrittura{
+.scrittura {
   background-color: #F4F0ED;
-  
+
 }
 
-.inner-messaggi{
+.inner-messaggi {
   height: 1000px;
 }
 
-.contatti{
+.contatti {
   height: calc(100% - 180px);
 }
 
 
-.scrittura i{
+.scrittura i {
   color: grey;
   font-size: 1.5rem;
 }
@@ -135,16 +135,16 @@ margin-top: 20%;
 
 /* chat select */
 
-.user:hover{
+.user:hover {
   background-color: #F4F0ED;
 }
 
 
-.active{
+.active {
   background-color: #F4F0ED;
 }
 
-.msg-bubble{
+.msg-bubble {
   display: flex;
   flex-flow: column nowrap;
   background-color: white;
@@ -153,33 +153,38 @@ margin-top: 20%;
   align-self: flex-start;
 }
 
-.send-time{
+.send-time {
   font-size: 10px;
   color: grey;
   margin-bottom: 2px;
 }
 
 
-.sent{
-  background-color:#DDFABF;
+.sent {
+  background-color: #DDFABF;
   align-self: flex-end;
 }
 
-.sent .send-time::after{
+.sent .send-time::after {
   content: '\f560';
   font: var(--fa-font-solid);
   margin-left: 2px;
-  
+
 }
 
 
-#send-msg{
+#send-msg {
   font-size: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background-color: rgb(21, 124, 119) ;
-margin-left: 10px;
-line-height: 35px;
-  color:white
+  color: rgb(21, 124, 119)
+}
+
+
+.v-enter-active,
+.v-leave-active {
+  transition: scale 0.4s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  scale: 0.1;
 }
