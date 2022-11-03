@@ -32,7 +32,7 @@ const app = createApp({
 
             currentIndex: 0,
             newMessage: '',
-
+            cerca: '',
 
             contacts: [
 
@@ -142,44 +142,10 @@ const app = createApp({
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         },
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
-                        },
-
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
-                        },
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
-                        },
-
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
-                        },
-                        {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
-                        },
-
-                        {
-                            date: '10/01/2020 15:50:00',
-                            message: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
-                        },
+                       
 
                     ],
                 },
-
-
 
                 {
                     id: 5,
@@ -279,6 +245,19 @@ const app = createApp({
     },
 
 
+    computed: {
+
+        filteredContacts(){
+                return  this.contacts.filter((user)=>{
+                        const name = user.name.toLowerCase();
+                        return name.includes(this.cerca.toLowerCase())
+                
+            })
+        }
+
+    },
+
+
     methods: {
 
         //   funzione click
@@ -316,10 +295,14 @@ const app = createApp({
                 this.contacts[this.currentIndex].messages.push(newmessage);
                 
             }, 2000);
-
         },
 
-       
+        // getContact(){
+        //     // this.contacts = this.contacts.filter((user)=>{
+        //     //     const name = user.name.toLowerCase();
+        //     //     return name.includes(this.cerca.toLowerCase())
+        //     // })
+        // }
 
 
     }
