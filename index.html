@@ -51,9 +51,9 @@
                         :class="{'current' : obj.id === currentIndex}">
                         <img class="tondo" :src="`./img/avatar${obj.avatar}.jpg`" :alt="obj.name">
                         <p>{{obj.name}}<br>
-                            <span>{{truncate(obj.messages[obj.messages.length-1].message, 20)}}</span>
+                            <span>{{truncate(getLastMsg(obj).message, 20)}}</span>
                         </p>
-                        <span>{{obj.messages[obj.messages.length-1].date.substring(11,16)}}</span>
+                        <span>{{getLastMsg(obj).date.substring(11,16)}}</span>
                     </div>
                 </div>
     
@@ -66,7 +66,7 @@
                         <p>{{contacts[currentIndex].name}}
                             <br>
                             <span>Ultimo accesso
-                                {{contacts[currentIndex].messages[contacts[currentIndex].messages.length-1].date.substring(11,16)}}</span>
+                                {{getLastMsg(contacts[currentIndex]).date.substring(11,16)}}</span>
                         </p>
     
                     </div>
@@ -84,7 +84,7 @@
                             <div v-if="msgOpt.index === index && msgOpt.show">
                                 <div class="position-absolute d-flex flex-column erase-box">
                                     <span>Info Messaggio</span>
-                                    <span>Cancella messaggi</span>
+                                    <span @click="deleteMsg(index)">Cancella messaggi</span>
                                 </div>
                             </div>
                             <p class="send-time align-self-end  ">{{message.date.substring(11,16)}}</p>
