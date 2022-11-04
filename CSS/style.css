@@ -6,11 +6,16 @@
 
 
 
-body {
+.mega-wrap {
+  
   padding-bottom: 40px;
   padding-top: 40px;
   height: 100vh;
   background: linear-gradient(180deg, rgb(21, 124, 119) 15%, rgb(200, 200, 200) 100px);
+}
+
+.demon-mode{
+  filter: invert(1);
 }
 
 
@@ -190,4 +195,13 @@ body {
 .v-enter-from,
 .v-leave-to {
   scale: 0.1;
+}
+
+
+.erase-box{
+  right: 0;
+  top: 60px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 8px;
 }
