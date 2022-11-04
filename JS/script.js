@@ -33,7 +33,10 @@ const app = createApp({
             currentIndex: 0,
             newMessage: '',
             cerca: '',
-
+            msgOpt:{
+                index: null,
+                show: false,
+            },
             contacts: [
 
                 {
@@ -295,6 +298,10 @@ const app = createApp({
             this.contacts[this.currentIndex].messages.push(newmessage);
             this.contacts[this.currentIndex].newMessage = ''
 
+            this.$nextTick(()=> {
+                const el =  this.$refs.msg[this.$refs.msg.length - 1 ];
+                el.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+            })
 
             setTimeout(() => {
 
@@ -305,13 +312,19 @@ const app = createApp({
                 }
 
                 this.contacts[this.currentIndex].messages.push(newmessage);
-
+                this.$nextTick(()=> {
+                    const el =  this.$refs.msg[this.$refs.msg.length - 1 ];
+                    el.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+                })
+                                         
             }, 2000);
         },
 
         truncate(str, maxlength) {
             return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str;
-        }
+        },
+
+
 
 
 

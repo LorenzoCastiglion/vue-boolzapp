@@ -7,6 +7,7 @@
 
 
 body {
+  padding-bottom: 40px;
   padding-top: 40px;
   height: 100vh;
   background: linear-gradient(180deg, rgb(21, 124, 119) 15%, rgb(200, 200, 200) 100px);
@@ -16,9 +17,7 @@ body {
 .wrapper {
   overflow: hidden;
   background-color: white;
-  width: 85%;
-  height: 95%;
-  margin-top: 20%;
+
 
 }
 
@@ -109,6 +108,7 @@ body {
 
 .messaggi {
   overflow-y: auto;
+  
   background-image: url(../img/mine.jpg);
   height: calc(100% - 154px);
 }
@@ -118,9 +118,7 @@ body {
 
 }
 
-.inner-messaggi {
-  height: 1000px;
-}
+
 
 .contatti {
   height: calc(100% - 180px);
@@ -176,6 +174,11 @@ body {
 #send-msg {
   font-size: 20px;
   color: rgb(21, 124, 119)
+}
+
+#send-msg:hover {
+  font-size: 20px;
+  color: limegreen;
 }
 
 
