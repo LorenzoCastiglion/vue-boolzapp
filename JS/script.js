@@ -327,6 +327,12 @@ const app = createApp({
         },
 
 
+        deleteMsg(i){
+            console.log(this.contacts[this.currentIndex].messages);
+            this.contacts[this.currentIndex].messages.splice(i,1);
+            this.msgOpt.show = false
+        },
+
         toggleOpt(i){
             if(i === this.msgOpt.index && this.msgOpt.show){
                 this.msgOpt.index= null;
@@ -336,7 +342,28 @@ const app = createApp({
                 this.msgOpt.index= i;
                 this.msgOpt.show = true;
             }
-        }
+        },
+
+        getLastMsg(i){
+            const lastMsg = i.messages.filter((el)=> el.status === 'received');
+
+            if(lastMsg == 0){
+                return {
+                    date: 'nope',
+                    message: 'noper',
+                    status: 'received'
+                    
+                }
+            } 
+
+            return lastMsg[lastMsg.length-1]
+            
+            
+        },
+
+  
+
+        
 
 
 

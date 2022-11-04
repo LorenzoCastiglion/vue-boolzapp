@@ -199,6 +199,7 @@
 
 
 .erase-box{
+  z-index: 90;
   right: 0;
   top: 60px;
   padding: 5px;
