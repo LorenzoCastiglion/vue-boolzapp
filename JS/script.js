@@ -29,7 +29,7 @@ const app = createApp({
 
 
         return {
-
+            rndAns: [ 'Non posso', 'Chi sei?', 'Ti piacciono i ricci di mare?', 'Hai comprato la maschera da sommozzatore?', 'La nonna s\'è rotta il femore', 'non so chi sia Davide', 'Ok?'],
             currentIndex: 0,
             newMessage: '',
             cerca: '',
@@ -40,7 +40,7 @@ const app = createApp({
             contacts: [
 
                 {
-                    id: 1,
+                    id: 0,
                     name: 'Michele',
                     avatar: '_1',
                     visible: true,
@@ -67,7 +67,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 2,
+                    id: 1,
                     name: 'Fabio',
                     avatar: '_2',
                     visible: true,
@@ -94,7 +94,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 3,
+                    id: 2,
                     name: 'Samuele',
                     avatar: '_3',
                     visible: true,
@@ -121,7 +121,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 4,
+                    id: 3,
                     name: 'Alessandro B.',
                     avatar: '_4',
                     visible: true,
@@ -155,7 +155,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 5,
+                    id: 4,
                     name: 'Alessandro L.',
                     avatar: '_5',
                     visible: true,
@@ -178,7 +178,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 6,
+                    id: 5,
                     name: 'Claudia',
                     avatar: '_6',
                     visible: true,
@@ -205,7 +205,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 7,
+                    id: 6,
                     name: 'Federico',
                     avatar: '_7',
                     visible: true,
@@ -227,7 +227,7 @@ const app = createApp({
 
 
                 {
-                    id: 8,
+                    id: 7,
                     name: 'Davide',
                     avatar: '_8',
                     visible: true,
@@ -305,9 +305,11 @@ const app = createApp({
 
             setTimeout(() => {
 
+                rndMsg = this.rndAns[Math.floor(Math.random() * this.rndAns.length)];
+
                 const newmessage = {
                     date: newDate,
-                    message: 'OK!',
+                    message: rndMsg,
                     status: 'received'
                 }
 

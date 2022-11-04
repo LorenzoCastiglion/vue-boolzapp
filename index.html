@@ -23,8 +23,8 @@
         <div class="left col-md-4">
             <div class=" user-top p-3 d-flex justify-content-between align-items-center">
                 <div>
-                    <img class="tondo" src="./img/avatar_io.jpg" alt="">
-                    Sofia
+                    <img class="tondo" src="./img/face.png" alt="">
+                    Lorenzo
                 </div>
                 <div class="d-flex">
                     <a class="px-1 top-btn" href="#"><i class="fa-solid fa-circle-notch"></i></a>
@@ -47,7 +47,7 @@
             <div class="contatti overflow-auto">
                 <div class="user users p-3 d-flex justify-content-between align-items-center "
                     v-for="(obj,i) in filteredContacts" :key="obj.id" @click="getConv(obj.id)"
-                    :class="{'current' : obj.id-1 === currentIndex}">
+                    :class="{'current' : obj.id === currentIndex}">
                     <img class="tondo" :src="`./img/avatar${obj.avatar}.jpg`" :alt="obj.name">
                     <p>{{obj.name}}<br>
                         <span>{{truncate(obj.messages[obj.messages.length-1].message, 20)}}</span>
