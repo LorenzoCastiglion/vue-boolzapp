@@ -37,6 +37,7 @@ const app = createApp({
                 index: null,
                 show: false,
             },
+            dark: false,
             contacts: [
 
                 {
@@ -361,7 +362,9 @@ const app = createApp({
             
         },
 
-  
+        darkmode(){
+            this.dark = !this.dark
+        }
 
         
 
