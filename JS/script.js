@@ -29,7 +29,7 @@ const app = createApp({
 
 
         return {
-            rndAns: [ 'Non posso', 'Chi sei?', 'Ti piacciono i ricci di mare?', 'Hai comprato la maschera da sommozzatore?', 'La nonna s\'è rotta il femore', 'non so chi sia Davide', 'Ok?', 'Coding ain\'t easy', 'Marco non riesce a capire quando parla a sproposito', 'Mattia non troverà mai degli amici'],
+            rndAns: [ 'Non posso', 'Chi sei?', 'Ti piacciono i ricci di mare?', 'Hai comprato la maschera da sommozzatore?', 'La nonna s\'è rotta il femore', 'non so chi sia Davide', 'Ok?', 'Coding ain\'t easy', 'Marco non riesce a capire quando parla a sproposito', 'Mattia non troverà mai degli amici', 'WHATSHAPPEN!!!'],
             currentIndex: 0,
             newMessage: '',
             cerca: '',
