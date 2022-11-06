@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src=" https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
+    <script src="./JS/script.js" defer></script>
+    <title>Boolzap</title>
+</head>
+
+<body>
+
+<div id="app">
+    
+    <div class="mega-wrap " :class="{'demon-mode': dark }">
+        <div class="slide">
+            <span class="slider round" :class="{'sun' : dark }" @click="darkmode()"></span>
+        </div>
+       
+    
+            <div class="wrapper  container h-100 p-0  col-10 d-flex " >
+                <div class="left col-md-4">
+                    <div class=" user-top p-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <img class="tondo" :class="{'invert': dark}" src="./img/face.png" alt="">
+                            Lorenzo
+                        </div>
+                        <div class="d-flex">
+                            <a class="px-1 top-btn" href="#"><i class="fa-solid fa-circle-notch"></i></a>
+                            <a class="px-1 top-btn" href="#"><i class="fa-solid fa-message"></i></a>
+                            <a class="px-1 mx-1 top-btn" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                        </div>
+                    </div>
+                    <div class="under-user ">
+                        <div class="notifiche px-3 py-2 d-flex align-content-center align-items-center">
+                            <i class="fa-solid fa-bell-slash fs-3" id="bell"></i>
+                            <p class="">Ricevi notifiche di nuovi messaggi <br>
+                                <span class="text-decoration-underline">Attiva notifiche desktop</span>
+                            </p>
+                        </div>
+                    
+                        <div class="search p-1  px-3 d-flex justify-content-around">
+                            <button><i class="col px-3 text-center fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                            <input class="col" type="text" placeholder="cerca e inizia una nuova chat" v-model.trim="cerca">
+                        </div>
+                    </div>
+                    <div class="contatti overflow-auto">
+                        <div class="user users p-3 d-flex justify-content-between align-items-center "
+                            v-for="(obj,i) in filteredContacts" :key="obj.id" @click="getConv(obj.id)"
+                            :class="{'current' : obj.id === currentIndex}">
+                            <img class="tondo" :class="{'invert': dark}" :src="`./img/avatar${obj.avatar}.jpg`" :alt="obj.name">
+                            <p>{{obj.name}}<br>
+                                <span>{{truncate(getLastMsg(obj).message, 20)}}</span>
+                            </p>
+                            <span>{{getLastMsg(obj).date.substring(11,16)}}</span>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="right col-md-8">
+                    <div class="user p-3 d-flex justify-content-between align-items-center">
+                        <div class="d-flex">
+                            <img class="tondo" :class="{'invert': dark}" :src="`./img/avatar${contacts[currentIndex].avatar}.jpg`"
+                                :alt="contacts[currentIndex].name">
+                            <p>{{contacts[currentIndex].name}}
+                                <br>
+                                <span>Ultimo accesso
+                                    {{getLastMsg(contacts[currentIndex]).date.substring(11,16)}}</span>
+                            </p>
+    
+                        </div>
+                        <div class="d-flex">
+                            <a class="px-1 top-btn" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+                            <a class="px-1 top-btn" href="#"><i class="fa-solid fa-paperclip"></i></a>
+                            <a class="px-1 mx-1 top-btn" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                        </div>
+                    </div>
+                    <div class="messaggi overflow-auto ">
+                        <div class="inner-messaggi d-flex flex-column p-4  ">
+                            <div class="msg-bubble px-2 col-md-6 m-3 position-relative "
+                                v-for="(message,index) in contacts[currentIndex].messages" :key="index" :class="message.status" ref="msg">
+                                <p class="testo align-self-start pt-1 mb-0">{{message.message}} </p>
+                                <div v-if="msgOpt.index === index && msgOpt.show">
+                                    <div class="position-absolute d-flex flex-column erase-box">
+                                        <span>Info Messaggio</span>
+                                        <span @click="deleteMsg(index)">Cancella messaggi</span>
+                                    </div>
+                                </div>
+                                <p class="send-time align-self-end  ">{{message.date.substring(11,16)}}</p>
+                                <i class="fa-solid fa-chevron-down align-self-end pb-1" @click="toggleOpt(index)"></i>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class=" scrittura py-3 d-flex justify-content-center align-items-center">
+                        <i class="col-1 text-center fa-regular fa-face-smile"></i>
+                        <input class=" border w-100 border-0 p-2  rounded" v-model.trim="contacts[currentIndex].newMessage" @keyup.enter="sendMessage()"type="text" placeholder="Scrivi un messaggio">
+                        <div class="col-1 text-center">
+                            <Transition>
+                            <i id="send-msg" class="fa-solid fa-paper-plane " @click="sendMessage()" v-if="!!contacts[currentIndex].newMessage"></i>
+                            <i class="  fa-solid fa-microphone" v-else></i>
+                            </Transition>
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+    
+    
+            </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+

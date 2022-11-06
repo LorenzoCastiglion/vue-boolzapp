@@ -364,8 +364,10 @@ const app = createApp({
 
         darkmode(){
             this.dark = !this.dark
-        }
+        },
 
+
+       
         
 
 
@@ -380,4 +382,23 @@ const app = createApp({
 
 
 }).mount("#app")
+
+const splash = createApp({
+   
+   data(){
+    return {
+
+    } 
+   },
+
+   mounted(){
+    setTimeout(function(){ window.location = './booozap.html'; }, 6000);
+      return 
+    
+   }
+   
+
+}).mount("#splash")
+
+
 
