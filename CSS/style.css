@@ -212,48 +212,122 @@
 }
 
 /* slider darkmode */
-.slider {
-  position: absolute;
+.toggle {
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
- 
+  display: inline-block;
 }
-
-.slider:before {
-  position: absolute;
-  content: "\f186";
-  font: var(--fa-font-solid);
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  content: '\f185';
+  font: var(--fa-font-regular);
   text-align: center;
   line-height: 24px;
-  height: 24px;
-  width: 24px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-
 }
-.slider.round {
-  border-radius: 20px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-.slide{
-  position: relative;
-  width: 30px;
-  height: 30px;
-}
-
-.slider.sun::before{
-  content:'\f185' ;
-  font: var(--fa-font-solid);
+.toggle-switch.moon:before {
+  content: '\f186';
+  font: var(--fa-font-regular);
+  text-align: center;
   line-height: 24px;
- 
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+
+/* splash page */
+.loading-bg{
+  background-color:rgb(21, 124, 119) ;
+  height: 100vh;
+flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.logo{
+  
+  width: 300px;
+  height: 300px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #434C56;
+}
+
+.loading-animation {
+  display: flex;
+}
+
+.cog {
+  animation-name: loading-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.loading-big {
+  font-size: 108px;
+  margin-bottom: 15px;
+  animation-duration: 3s;
+}
+
+.loading-small {
+  font-size: 60px;
+  align-self: flex-end;
+  margin-left: -10px;
+  animation-duration: 2s;
+  animation-direction: reverse;
+}
+
+.loading-text {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

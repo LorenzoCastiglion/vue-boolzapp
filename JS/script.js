@@ -362,18 +362,9 @@ const app = createApp({
             
         },
 
-        darkmode(){
+        darkMode(){
             this.dark = !this.dark
         },
-
-
-       
-        
-
-
-
-
-
 
     }
 
