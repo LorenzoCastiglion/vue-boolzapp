@@ -226,11 +226,14 @@
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: "\f186";
+  font: var(--fa-font-solid);
+  text-align: center;
+  line-height: 20px;
   height: 20px;
   width: 20px;
-  left: 4px;
-  bottom: 3px;
+  left: 5px;
+  bottom: 5px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -245,6 +248,6 @@
 
 .slide{
   position: relative;
-  width: 28px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
