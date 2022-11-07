@@ -41,7 +41,7 @@ const app = createApp({
             contacts: [
 
                 {
-                    id: 0,
+                    id: 1,
                     name: 'Michele',
                     avatar: '_1',
                     visible: true,
@@ -68,7 +68,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 1,
+                    id: 2,
                     name: 'Fabio',
                     avatar: '_2',
                     visible: true,
@@ -95,7 +95,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 2,
+                    id: 3,
                     name: 'Samuele',
                     avatar: '_3',
                     visible: true,
@@ -122,7 +122,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 3,
+                    id: 4,
                     name: 'Alessandro B.',
                     avatar: '_4',
                     visible: true,
@@ -156,7 +156,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 4,
+                    id: 5,
                     name: 'Alessandro L.',
                     avatar: '_5',
                     visible: true,
@@ -179,7 +179,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 5,
+                    id: 6,
                     name: 'Claudia',
                     avatar: '_6',
                     visible: true,
@@ -206,7 +206,7 @@ const app = createApp({
                 },
 
                 {
-                    id: 6,
+                    id: 7,
                     name: 'Federico',
                     avatar: '_7',
                     visible: true,
@@ -228,7 +228,7 @@ const app = createApp({
 
 
                 {
-                    id: 7,
+                    id: 8,
                     name: 'Davide',
                     avatar: '_8',
                     visible: true,
@@ -274,6 +274,8 @@ const app = createApp({
 
         //   funzione click
         getConv(id) {
+
+            // no contacts ma filtered
             this.currentIndex = this.contacts.findIndex((item) => item.id === id)
 
         },
@@ -374,6 +376,8 @@ const app = createApp({
 
 }).mount("#app")
 
+
+// spalsh app
 const splash = createApp({
    
    data(){
